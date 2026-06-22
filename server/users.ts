@@ -1,6 +1,6 @@
 "use server"
-import { FormLogin } from "@/app/login/login-form"
-import { FormSignup } from "@/app/signup/signup-form"
+import { FormLogin } from "@/app/(auth)/login/login-form"
+import { FormSignup } from "@/app/(auth)/signup/signup-form"
 import { auth } from "@/lib/auth"
 
 export const signIn = async (formdata: FormLogin) => {
@@ -32,6 +32,7 @@ export const signUp = async (formdata: FormSignup) => {
         name: formdata.name,
         email: formdata.email,
         password: formdata.password,
+        callbackURL: "/",
       },
     })
 

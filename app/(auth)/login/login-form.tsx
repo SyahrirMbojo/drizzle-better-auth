@@ -26,6 +26,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   email: z.email("Email invalid"),
@@ -56,6 +57,7 @@ export function LoginForm({
       router.push("/");
     } else {
       console.log(message);
+      toast.error(message);
     }
   };
 
